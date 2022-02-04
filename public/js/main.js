@@ -2,7 +2,7 @@ const chatForm = document.getElementById('chat-form');
 const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
-
+const userCount = document.getElementById('user-count');
 // Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
@@ -78,6 +78,7 @@ function outputUsers(users) {
     li.innerText = user.username;
     userList.appendChild(li);
   });
+  userCount.innerHTML = users.length;
 }
 
 //Prompt the user before leave chat room
